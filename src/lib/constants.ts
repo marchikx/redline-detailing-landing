@@ -1,5 +1,6 @@
 import { Shield, Zap, Sparkles, Droplets, Car, MapPin } from "lucide-react";
 import type { Service, GalleryItem, SiteConfig } from "@/types";
+import { asset } from "@/lib/asset";
 
 /* ═══════════════════════════════════════════════════════════════════════════
    SITE CONFIGURATION
@@ -139,35 +140,35 @@ export const services: Service[] = [
 export const galleryItems: GalleryItem[] = [
   {
     id: "porsche-911",
-    src: "/images/car-porsche.png",
+    src: asset("/images/car-porsche.png"),
     title: "Porsche 911 Carrera",
     service: "Ceramic Pro",
     year: "2024",
   },
   {
     id: "g-wagon",
-    src: "/images/car-gwagon.png",
+    src: asset("/images/car-gwagon.png"),
     title: "Mercedes G63 AMG",
     service: "PPF Full Body",
     year: "2024",
   },
   {
     id: "bmw-m235",
-    src: "/images/car-bmw.png",
+    src: asset("/images/car-bmw.png"),
     title: "BMW M235i",
     service: "Korekta + Ceramika",
     year: "2023",
   },
   {
     id: "focus-rs",
-    src: "/images/car-focus.png",
+    src: asset("/images/car-focus.png"),
     title: "Ford Focus RS",
     service: "Detailing kompletny",
     year: "2023",
   },
   {
     id: "bmw-touring",
-    src: "/images/car-bmw-touring.png",
+    src: asset("/images/car-bmw-touring.png"),
     title: "BMW 3 Touring",
     service: "Powłoka ceramiczna",
     year: "2024",

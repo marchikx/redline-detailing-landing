@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { asset } from "@/lib/asset";
 import { MagneticButton, Button } from "@/components/ui/Button";
 import { RatingBadge, Eyebrow } from "@/components/ui/Badge";
 import { siteConfig } from "@/lib/constants";
@@ -126,7 +127,7 @@ export function Hero() {
           className="relative aspect-[16/9] rounded-3xl overflow-hidden border border-white/10"
         >
           <Image
-            src="/images/car-porsche.png"
+            src={asset("/images/car-porsche.png")}
             alt="Porsche 911 po profesjonalnym detailingu w Red Line"
             fill
             priority

@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/marchikx/redline-detailing-landing/actions/workflows/ci.yml/badge.svg)](https://github.com/marchikx/redline-detailing-landing/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 
+**Live:** https://marchikx.github.io/redline-detailing-landing/ — static export (`NEXT_PUBLIC_BASE_PATH` set at build time).
+
 Premium marketing landing page for an auto detailing studio (Kraków). Dark **Umbrel/Bento** aesthetic with glassmorphism, Framer Motion, and SEO-focused metadata.
 
 ## What / for whom

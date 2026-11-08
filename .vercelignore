@@ -1,0 +1,6 @@
+# Don't upload these — Vercel installs/builds on server
+node_modules
+.next
+.cursor
+*.log
+.git

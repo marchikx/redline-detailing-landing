@@ -1,0 +1,427 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   RED LINE DETAILING — GOD MODE DESIGN SYSTEM
+   Awwwards Site of the Day Standard
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN TOKENS — CSS Custom Properties
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ─────────────────────────────────────────────────────────────────────────
+     BACKGROUND LAYERS
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-bg-void: #030303;
+  --color-bg-base: #0a0a0a;
+  --color-bg-elevated: #111111;
+  --color-bg-overlay: #181818;
+  --color-bg-subtle: #0f0f0f;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BORDER SYSTEM — Whisper-thin separation
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-border-faint: rgba(255, 255, 255, 0.04);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-default: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+  --color-border-active: rgba(255, 255, 255, 0.18);
+  --color-border-accent: rgba(220, 38, 38, 0.4);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TEXT HIERARCHY
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-text-primary: #ededed;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+  --color-text-faint: #52525b;
+  --color-text-ghost: #3f3f46;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     ACCENT COLORS — RED (використовувати ЕКОНОМНО)
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-accent-red: #dc2626;
+  --color-accent-red-hover: #ef4444;
+  --color-accent-red-muted: rgba(220, 38, 38, 0.15);
+  --color-accent-glow: rgba(220, 38, 38, 0.3);
+  --color-accent-glow-intense: rgba(220, 38, 38, 0.5);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     SEMANTIC SERVICE COLORS
+     ───────────────────────────────────────────────────────────────────────── */
+  --color-ceramic: #dc2626;
+  --color-ppf: #3b82f6;
+  --color-correction: #f97316;
+  --color-interior: #a855f7;
+  --color-wash: #06b6d4;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     GRADIENTS
+     ───────────────────────────────────────────────────────────────────────── */
+  --gradient-surface: linear-gradient(
+    180deg,
+    rgba(20, 20, 20, 0.6) 0%,
+    rgba(10, 10, 10, 0.4) 100%
+  );
+  --gradient-glow-red: radial-gradient(
+    ellipse 80% 50% at 50% 100%,
+    rgba(220, 38, 38, 0.2) 0%,
+    transparent 70%
+  );
+  --gradient-hero-mask: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(3, 3, 3, 0.6) 50%,
+    #030303 100%
+  );
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     TYPOGRAPHY — Fluid with clamp()
+     ───────────────────────────────────────────────────────────────────────── */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+  /* Display — Hero headlines */
+  --text-display-1: clamp(3rem, 8vw + 1rem, 9rem);
+  --text-display-2: clamp(2.5rem, 6vw + 1rem, 7rem);
+
+  /* Headlines */
+  --text-h1: clamp(2.25rem, 5vw + 0.5rem, 4.5rem);
+  --text-h2: clamp(1.75rem, 4vw + 0.5rem, 3.5rem);
+  --text-h3: clamp(1.25rem, 2vw + 0.5rem, 1.75rem);
+  --text-h4: clamp(1.125rem, 1.5vw + 0.5rem, 1.375rem);
+
+  /* Body text */
+  --text-body-lg: clamp(1.0625rem, 1vw + 0.5rem, 1.25rem);
+  --text-body: clamp(0.9375rem, 0.8vw + 0.5rem, 1rem);
+  --text-body-sm: clamp(0.8125rem, 0.6vw + 0.5rem, 0.875rem);
+
+  /* Labels & Captions */
+  --text-caption: 0.75rem;
+  --text-label: 0.6875rem;
+
+  /* Letter spacing */
+  --tracking-tightest: -0.05em;
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.1em;
+  --tracking-widest: 0.2em;
+
+  /* Line height */
+  --leading-none: 1;
+  --leading-tight: 1.1;
+  --leading-snug: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* Font weights */
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     SPACING — Golden Ratio Scale
+     ───────────────────────────────────────────────────────────────────────── */
+  --space-0: 0;
+  --space-1: 0.25rem;
+  --space-2: 0.375rem;
+  --space-3: 0.625rem;
+  --space-4: 1rem;
+  --space-5: 1.625rem;
+  --space-6: 2.625rem;
+  --space-7: 4.25rem;
+  --space-8: 6.875rem;
+  --space-9: 11.125rem;
+
+  /* Semantic spacing */
+  --spacing-section-y: clamp(5rem, 10vw, 10rem);
+  --spacing-section-x: clamp(1.5rem, 5vw, 3rem);
+  --spacing-card-padding: clamp(1.5rem, 3vw, 2.5rem);
+  --spacing-card-gap: clamp(1rem, 2vw, 1.5rem);
+  --spacing-stack-sm: 0.5rem;
+  --spacing-stack-md: 1rem;
+  --spacing-stack-lg: 2rem;
+
+  /* Container widths */
+  --container-xs: 32rem;
+  --container-sm: 40rem;
+  --container-md: 48rem;
+  --container-lg: 64rem;
+  --container-xl: 80rem;
+  --container-2xl: 90rem;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     BORDER RADIUS
+     ───────────────────────────────────────────────────────────────────────── */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     SHADOWS
+     ───────────────────────────────────────────────────────────────────────── */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.5), 0 8px 10px -6px rgb(0 0 0 / 0.5);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.6);
+
+  /* Glow shadows */
+  --shadow-glow-red: 0 0 40px -10px rgba(220, 38, 38, 0.4);
+  --shadow-glow-red-lg: 0 0 80px -20px rgba(220, 38, 38, 0.5);
+  --shadow-glow-white: 0 0 60px -15px rgba(255, 255, 255, 0.15);
+
+  /* Inset shadows */
+  --shadow-inset: inset 0 2px 4px 0 rgb(0 0 0 / 0.3);
+  --shadow-inset-glow: inset 0 0 30px rgba(255, 255, 255, 0.02);
+
+  /* ─────────────────────────────────────────────────────────────────────────
+     EASING FUNCTIONS
+     ───────────────────────────────────────────────────────────────────────── */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-elastic: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --ease-scroll: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-hover: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg-void);
+  color: var(--color-text-primary);
+  font-size: var(--text-body);
+  line-height: var(--leading-normal);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GRAIN TEXTURE OVERLAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY RESET
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FOCUS STATES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-red);
+  outline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::selection {
+  background-color: var(--color-accent-red-muted);
+  color: var(--color-text-primary);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLLBAR (Webkit)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-default);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   REDUCED MOTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes scroll-x {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+}
+
+/* Glass panel base */
+.glass-panel {
+  background: var(--gradient-surface);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+}
+
+.glass-panel:hover {
+  border-color: var(--color-border-hover);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-2xl);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-section-x);
+  padding-right: var(--spacing-section-x);
+}
+
+/* Section spacing */
+.section {
+  padding-top: var(--spacing-section-y);
+  padding-bottom: var(--spacing-section-y);
+}

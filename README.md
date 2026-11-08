@@ -1,5 +1,7 @@
 # RED LINE Detailing — Landing Page
 
+[![CI](https://github.com/marchikx/redline-detailing-landing/actions/workflows/ci.yml/badge.svg)](https://github.com/marchikx/redline-detailing-landing/actions/workflows/ci.yml) ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
+
 Premium marketing landing page for an auto detailing studio (Kraków). Dark **Umbrel/Bento** aesthetic with glassmorphism, Framer Motion, and SEO-focused metadata.
 
 ## What / for whom
